@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HOSPITALITY", "HOSPITALITY\HOSPITALITY.vbproj", "{3C2ABDF3-A63F-4984-A27A-F122590773BE}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -43,23 +43,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 5
-		SccProjectName0 = \u0022$/HOSPITALITY.root/HOSPITALITY\u0022,\u0020FOCCAAAA
-		SccLocalPath0 = ..\\..\\..\\..
-		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
-		SccProjectFilePathRelativizedFromConnection0 = VSS\\HOSPITALITY\\VSS\\HOSPITALITY\\
-		SccProjectUniqueName1 = BL\\BL.vbproj
-		SccLocalPath1 = ..\\..\\..\\..
-		SccProjectFilePathRelativizedFromConnection1 = VSS\\HOSPITALITY\\VSS\\HOSPITALITY\\BL\\
-		SccProjectUniqueName2 = DB\\DB.vbproj
-		SccLocalPath2 = ..\\..\\..\\..
-		SccProjectFilePathRelativizedFromConnection2 = VSS\\HOSPITALITY\\VSS\\HOSPITALITY\\DB\\
-		SccProjectUniqueName3 = HOSPITALITY\u0020SETUP\\HOSPITALITY\u0020SETUP.vdproj
-		SccLocalPath3 = ..\\..\\..\\..
-		SccProjectFilePathRelativizedFromConnection3 = VSS\\HOSPITALITY\\VSS\\HOSPITALITY\\HOSPITALITY\u0020SETUP\\
-		SccProjectUniqueName4 = HOSPITALITY\\HOSPITALITY.vbproj
-		SccLocalPath4 = ..\\..\\..\\..
-		SccProjectFilePathRelativizedFromConnection4 = VSS\\HOSPITALITY\\VSS\\HOSPITALITY\\HOSPITALITY\\
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FD29E3D-1613-4D7F-95C1-4F1F6F473B6E}
 	EndGlobalSection
 EndGlobal
