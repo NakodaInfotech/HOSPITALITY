@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://customerpoints.clp.com/" targetNamespace="http://customerpoints.clp.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cancelTransaction" type="tns:cancelTransaction" />
+  <xs:element name="cancelTransactionResponse" type="tns:cancelTransactionResponse" />
+  <xs:element name="getBillDetails" type="tns:getBillDetails" />
+  <xs:element name="getBillDetailsResponse" type="tns:getBillDetailsResponse" />
+  <xs:element name="getCustomerPoints" type="tns:getCustomerPoints" />
+  <xs:element name="getCustomerPointsResponse" type="tns:getCustomerPointsResponse" />
+  <xs:complexType name="getCustomerPoints">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:string" />
+      <xs:element minOccurs="0" name="cardNo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCustomerPointsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getBillDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:string" />
+      <xs:element minOccurs="0" name="billnumber" type="xs:string" />
+      <xs:element minOccurs="0" name="billdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="card_no" type="xs:string" />
+      <xs:element minOccurs="0" name="property" type="xs:string" />
+      <xs:element minOccurs="0" name="outlet" type="xs:string" />
+      <xs:element minOccurs="0" name="billamtbeftax" type="xs:double" />
+      <xs:element minOccurs="0" name="billamtafttax" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="billdetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="redemptionpoints" type="xs:double" />
+      <xs:element minOccurs="0" name="redemptiontype" type="xs:string" />
+      <xs:element minOccurs="0" name="giftvouchertype" type="xs:string" />
+      <xs:element minOccurs="0" name="workstationid" type="xs:string" />
+      <xs:element name="pointscalc" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getBillDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:string" />
+      <xs:element minOccurs="0" name="billnumber" type="xs:string" />
+      <xs:element minOccurs="0" name="billdate" type="xs:string" />
+      <xs:element minOccurs="0" name="card_no" type="xs:string" />
+      <xs:element minOccurs="0" name="outlet" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

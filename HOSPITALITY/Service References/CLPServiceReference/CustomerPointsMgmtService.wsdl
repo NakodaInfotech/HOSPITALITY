@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="http://customerpoints.clp.com/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="CustomerPointsMgmtService" targetNamespace="http://customerpoints.clp.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://122.170.118.18:8080/clpws/CustomerPointsMgmt?xsd=1" namespace="http://customerpoints.clp.com/" />
+    </xsd:schema>
+  </types>
+  <message name="getBillDetails">
+    <part name="parameters" element="tns:getBillDetails" />
+  </message>
+  <message name="getBillDetailsResponse">
+    <part name="parameters" element="tns:getBillDetailsResponse" />
+  </message>
+  <message name="getCustomerPoints">
+    <part name="parameters" element="tns:getCustomerPoints" />
+  </message>
+  <message name="getCustomerPointsResponse">
+    <part name="parameters" element="tns:getCustomerPointsResponse" />
+  </message>
+  <message name="cancelTransaction">
+    <part name="parameters" element="tns:cancelTransaction" />
+  </message>
+  <message name="cancelTransactionResponse">
+    <part name="parameters" element="tns:cancelTransactionResponse" />
+  </message>
+  <portType name="CustomerPointsMgmt">
+    <operation name="getBillDetails">
+      <input wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/getBillDetailsRequest" message="tns:getBillDetails" />
+      <output wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/getBillDetailsResponse" message="tns:getBillDetailsResponse" />
+    </operation>
+    <operation name="getCustomerPoints">
+      <input wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/getCustomerPointsRequest" message="tns:getCustomerPoints" />
+      <output wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/getCustomerPointsResponse" message="tns:getCustomerPointsResponse" />
+    </operation>
+    <operation name="cancelTransaction">
+      <input wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/cancelTransactionRequest" message="tns:cancelTransaction" />
+      <output wsam:Action="http://customerpoints.clp.com/CustomerPointsMgmt/cancelTransactionResponse" message="tns:cancelTransactionResponse" />
+    </operation>
+  </portType>
+  <binding name="CustomerPointsMgmtPortBinding" type="tns:CustomerPointsMgmt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getBillDetails">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomerPoints">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cancelTransaction">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CustomerPointsMgmtService">
+    <port name="CustomerPointsMgmtPort" binding="tns:CustomerPointsMgmtPortBinding">
+      <soap:address location="http://122.170.118.18:8080/clpws/CustomerPointsMgmt" />
+    </port>
+  </service>
+</definitions>
