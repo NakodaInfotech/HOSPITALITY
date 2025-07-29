@@ -1123,7 +1123,7 @@
     <Compile Include="Reports\Enquiry Reports\Misc Enquiry\MiscEnquirySourceWiseDetails.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MiscEnquirySourceWiseSumm.rpt</DependentUpon>
+      <DependentUpon>MiscEnquirySourceWiseDetails.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Enquiry Reports\Misc Enquiry\MiscEnquirySourceWiseSummary.vb">

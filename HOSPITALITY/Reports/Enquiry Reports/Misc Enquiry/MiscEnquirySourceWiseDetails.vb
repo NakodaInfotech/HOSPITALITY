@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class MiscEnquirySourceWiseSumm
+Public Class MiscEnquirySourceWiseDetails
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class MiscEnquirySourceWiseSumm
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "MiscEnquirySourceWiseSumm.rpt"
+            Return "MiscEnquirySourceWiseDetails.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class MiscEnquirySourceWiseSumm
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "HOSPITALITY.MiscEnquirySourceWiseSumm.rpt"
+            Return "HOSPITALITY.MiscEnquirySourceWiseDetails.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class MiscEnquirySourceWiseSumm
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedMiscEnquirySourceWiseSumm
+Public Class CachedMiscEnquirySourceWiseDetails
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +152,7 @@ Public Class CachedMiscEnquirySourceWiseSumm
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As MiscEnquirySourceWiseSumm = New MiscEnquirySourceWiseSumm()
+        Dim rpt As MiscEnquirySourceWiseDetails = New MiscEnquirySourceWiseDetails()
         rpt.Site = Me.Site
         Return rpt
     End Function
