@@ -270,7 +270,7 @@ Public Class Login
                         GoTo LINE1
                     End If
                 ElseIf ClientName = "TRISHA" Then
-                    If Now.Date > DateTime.Parse("15.07.2025 00:00") Then
+                    If Now.Date > DateTime.Parse("15.07.2026 00:00") Then
                         Dim DTNEW As DataTable = OBJCMN.Execute_Any_String("UPDATE VERSION SET VERSION_NO='1.0.0000'", "", "")
                         GoTo LINE1
                     End If
