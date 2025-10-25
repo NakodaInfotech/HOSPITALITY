@@ -3267,20 +3267,55 @@ line1:
         End Try
     End Sub
 
-    Sub fillROOMTYPE(ByRef CMBROOMTYPE As ComboBox)
-        Try
-            Dim objclscommon As New ClsCommon
-            Dim dt As DataTable
+    Sub fillROOMTYPE(ByRef CMBROOMTYPE As ComboBox, Optional forceRefresh As Boolean = False)
+        'Try
+        '    If CMBROOMTYPE.Text = "" Then
+        '        Dim objclscommon As New ClsCommon
+        '        Dim dt As DataTable
 
-            dt = objclscommon.search(" ROOMTYPE_NAME ", "", " ROOMTYPEMASTER", " and ROOMTYPE_cmpid=" & CmpId & " AND ROOMTYPE_LOCATIONID = " & Locationid & " AND ROOMTYPE_YEARID = " & YearId)
-            If dt.Rows.Count > 0 Then
-                dt.DefaultView.Sort = "ROOMTYPE_NAME"
-                CMBROOMTYPE.DataSource = dt
-                CMBROOMTYPE.DisplayMember = "ROOMTYPE_NAME"
-                CMBROOMTYPE.Text = ""
+        '        dt = objclscommon.search(" ROOMTYPE_NAME ", "", " ROOMTYPEMASTER", " and ROOMTYPE_cmpid=" & CmpId & " AND ROOMTYPE_LOCATIONID = " & Locationid & " AND ROOMTYPE_YEARID = " & YearId)
+        '        If dt.Rows.Count > 0 Then
+        '            dt.DefaultView.Sort = "ROOMTYPE_NAME"
+        '            CMBROOMTYPE.DataSource = dt
+        '            CMBROOMTYPE.DisplayMember = "ROOMTYPE_NAME"
+        '            CMBROOMTYPE.Text = ""
+        '        End If
+        '        CMBROOMTYPE.SelectAll()
+        '    End If
+        'Catch ex As Exception
+        '    Throw ex
+        'End Try
+        Try
+            ' Force refresh or first-time fill
+            If CMBROOMTYPE.DataSource Is Nothing OrElse forceRefresh Then
+
+                ' Clear if refreshing
+                If forceRefresh Then
+                    CMBROOMTYPE.DataSource = Nothing
+                End If
+
+                Dim objclscommon As New ClsCommon
+                Dim dt As DataTable
+
+                CMBROOMTYPE.BeginUpdate()
+
+                dt = objclscommon.search("ROOMTYPE_NAME", "", "ROOMTYPEMASTER",
+                " and ROOMTYPE_cmpid=" & CmpId &
+                " AND ROOMTYPE_LOCATIONID = " & Locationid &
+                " AND ROOMTYPE_YEARID = " & YearId &
+                " ORDER BY ROOMTYPE_NAME")
+
+                If dt.Rows.Count > 0 Then
+                    CMBROOMTYPE.DataSource = dt
+                    CMBROOMTYPE.DisplayMember = "ROOMTYPE_NAME"
+                    CMBROOMTYPE.ValueMember = "ROOMTYPE_NAME"
+                    CMBROOMTYPE.SelectedIndex = -1
+                End If
+
+                CMBROOMTYPE.EndUpdate()
             End If
-            CMBROOMTYPE.SelectAll()
         Catch ex As Exception
+            CMBROOMTYPE.EndUpdate()
             Throw ex
         End Try
     End Sub

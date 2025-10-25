@@ -1,8 +1,11 @@
 ﻿
-Imports BL
-Imports System.Windows.Forms
 Imports System.IO
-
+Imports System.Threading.Tasks
+Imports System.Windows.Forms
+Imports BL
+'Module GlobalCache
+'    Public RoomTypeCache As DataTable
+'End Module
 Public Class HotelMaster
 
     Dim USERADD, USEREDIT, USERVIEW, USERDELETE As Boolean      'USED FOR RIGHT MANAGEMAENT
@@ -14,6 +17,7 @@ Public Class HotelMaster
     Public TEMPHOTELNAME As String
     Dim TEMPCODE As String
     Public TEMPHOTELID As Integer
+    ' Dim filterText As String
 
     Private Sub pb1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles pb1.Click
         SETIMAGE(1)
@@ -193,7 +197,7 @@ Public Class HotelMaster
 
         If CMBHOTELNAME.Text.Trim = "" Then fillHOTEL(CMBHOTELNAME)
         fillHOTELTYPE(CMBHOTELTYPE)
-        fillROOMTYPE(cmbroomtype)
+        'fillROOMTYPE(cmbroomtype)
         FILLAMNETIES()
 
     End Sub
@@ -1528,4 +1532,96 @@ line1:
             Throw ex
         End Try
     End Sub
+    'Private Shared RoomTypeCache As DataTable
+
+    'Private Sub LoadRoomTypes()
+    '    If RoomTypeCache Is Nothing Then
+    '        Dim objclscommon As New ClsCommon
+    '        RoomTypeCache = objclscommon.search(" ROOMTYPE_NAME ", "", " ROOMTYPEMASTER",
+    '            " AND ROOMTYPE_cmpid=" & CmpId &
+    '            " AND ROOMTYPE_LOCATIONID=" & Locationid &
+    '            " AND ROOMTYPE_YEARID=" & YearId &
+    '            " ORDER BY ROOMTYPE_NAME")
+    '    End If
+
+    '    cmbroomtype.DataSource = RoomTypeCache
+    '    cmbroomtype.DisplayMember = "ROOMTYPE_NAME"
+    '    cmbroomtype.SelectedIndex = -1
+    'End Sub
+    'Private Async Function LoadRoomTypesAsync() As Task
+    '    Try
+    '        ' ✅ If already cached, use directly
+    '        If GlobalCache.RoomTypeCache IsNot Nothing AndAlso GlobalCache.RoomTypeCache.Rows.Count > 0 Then
+    '            cmbroomtype.DataSource = GlobalCache.RoomTypeCache
+    '            cmbroomtype.DisplayMember = "ROOMTYPE_NAME"
+    '            cmbroomtype.SelectedIndex = -1
+    '            Debug.WriteLine("✅ Using cached RoomType data")
+    '            Return
+    '        End If
+
+    '        ' 🕑 Show temporary message while loading
+    '        cmbroomtype.DataSource = Nothing
+    '        cmbroomtype.Items.Clear()
+    '        cmbroomtype.Items.Add("Loading room types...")
+    '        cmbroomtype.SelectedIndex = 0
+    '        cmbroomtype.Enabled = False
+
+    '        ' ⏱ Measure time
+    '        Dim sw As New Stopwatch()
+    '        sw.Start()
+
+    '        ' 🚀 Run the DB query in background thread
+    '        Dim dt As DataTable = Await Task.Run(Function() LoadRoomTypesFromDb())
+
+    '        sw.Stop()
+    '        Debug.WriteLine($"⏱ RoomType DB load time: {sw.ElapsedMilliseconds} ms")
+
+    '        ' ✅ Store in global cache
+    '        GlobalCache.RoomTypeCache = dt
+
+    '        ' 🔁 Bind to combobox
+    '        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+    '            cmbroomtype.DataSource = dt
+    '            cmbroomtype.DisplayMember = "ROOMTYPE_NAME"
+    '            cmbroomtype.SelectedIndex = -1
+    '        Else
+    '            cmbroomtype.DataSource = Nothing
+    '            cmbroomtype.Items.Clear()
+    '            cmbroomtype.Items.Add("No room types found")
+    '            cmbroomtype.SelectedIndex = 0
+    '        End If
+
+    '        cmbroomtype.Enabled = True
+
+    '    Catch ex As Exception
+    '        cmbroomtype.Enabled = True
+    '        MessageBox.Show("Error loading room types: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '    End Try
+    'End Function
+    'Private Function LoadRoomTypesFromDb() As DataTable
+    '    Try
+    '        Debug.WriteLine("⏳ Fetching RoomType data from database...")
+
+    '        Dim objclscommon As New ClsCommon
+
+    '        ' ✅ Fetch only the required columns to make it faster
+    '        Dim sqlCondition As String =
+    '        " AND ROOMTYPE_CMPID=" & CmpId &
+    '        " AND ROOMTYPE_LOCATIONID=" & Locationid &
+    '        " AND ROOMTYPE_YEARID=" & YearId &
+    '        " ORDER BY ROOMTYPE_NAME"
+
+    '        Dim dt As DataTable = objclscommon.search("ROOMTYPE_ID, ROOMTYPE_NAME", "", "ROOMTYPEMASTER", sqlCondition)
+
+    '        Return dt
+
+    '    Catch ex As Exception
+    '        MessageBox.Show("Error fetching RoomType data: " & ex.Message)
+    '        Return Nothing
+    '    End Try
+    'End Function
+    'Private Async Sub FrmRoom_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+    '    ' Load data when form is visible, so the UI doesn’t freeze
+    '    Await LoadRoomTypesAsync()
+    'End Sub
 End Class
