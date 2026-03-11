@@ -227,7 +227,7 @@ Public Class Login
                     End If
                 ElseIf ClientName = "ROYALHOLIDAYS" Then
                     LEADMANAGEMENT = True
-                    If Now.Date > DateTime.Parse("15.03.2026 00:00") Then
+                    If Now.Date > DateTime.Parse("15.03.2027 00:00") Then
                         Dim DTNEW As DataTable = OBJCMN.Execute_Any_String("UPDATE VERSION SET VERSION_NO='1.0.0000'", "", "")
                         GoTo LINE1
                     End If
@@ -297,7 +297,7 @@ Public Class Login
                         GoTo LINE1
                     End If
                 ElseIf ClientName = "VINAYAK" Then
-                    If Now.Date > DateTime.Parse("15.03.2026 00:00") Then
+                    If Now.Date > DateTime.Parse("15.03.2027 00:00") Then
                         Dim DTNEW As DataTable = OBJCMN.Execute_Any_String("UPDATE VERSION SET VERSION_NO='1.0.0000'", "", "")
                         GoTo LINE1
                     End If
