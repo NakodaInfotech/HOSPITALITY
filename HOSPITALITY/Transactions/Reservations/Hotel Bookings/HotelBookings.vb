@@ -5962,11 +5962,17 @@ ERRORMESSAGE:
                 BOOKINGDATE.Text = DTROWSAVE("DATE")
                 CMBGUESTNAME.Text = DTROWSAVE("GUESTNAME")
 
+
                 'CHECK WHETHER GUESTNAME IS PRESENT OR NOT
                 'IF NOT THEN ADD GUESTNAME 
                 Dim OBJSYNC As New SyncDate
                 Dim DT As DataTable = OBJCMN.search("GUEST_NAME AS GUESTNAME", "", " GUESTMASTER ", " AND GUEST_NAME = '" & CMBGUESTNAME.Text.Trim & "' AND GUEST_YEARID = " & YearId)
                 If DT.Rows.Count = 0 Then OBJSYNC.ADDGUESTNAME(CMBGUESTNAME.Text.Trim, DTROWSAVE("MOBILENO"))
+
+
+
+                cmbhotelname.Text = DTROWSAVE("HOTELNAME")
+                cmbhotelname_Validated(sender, e)
 
 
                 'CHECK WHETHER HOTELNAME IS PRESENT OR NOT
@@ -5976,9 +5982,6 @@ ERRORMESSAGE:
                     MsgBox("Hotel Not Present, please sync the Data first then upload", MsgBoxStyle.Critical)
                     GoTo SKIPLINE
                 End If
-
-                cmbhotelname.Text = DTROWSAVE("HOTELNAME")
-                cmbhotelname_Validated(sender, e)
 
 
                 CMBPURNAME.Text = DTROWSAVE("PURNAME")
