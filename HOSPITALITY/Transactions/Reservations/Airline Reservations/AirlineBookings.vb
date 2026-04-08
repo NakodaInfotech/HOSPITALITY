@@ -3393,15 +3393,18 @@ LINE2:
 
     Private Sub GRIDPUR_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GRIDPUR.KeyDown
         Try
-            If e.KeyCode = Keys.Delete And GRIDBOOKINGS.RowCount > 0 Then
+            If e.KeyCode = Keys.Delete And GRIDPUR.RowCount > 0 Then
 
-                'dont allow user TO DFELETE IN GRIDPUR
-                MessageBox.Show("You Cannot Delete This Row, Delete from Booking Tab")
-                Exit Sub
+                GRIDPUR.Rows.RemoveAt(GRIDPUR.CurrentRow.Index)
 
+                total()
+                getsrno(GRIDPUR)
+
+            ElseIf e.KeyCode = Keys.F5 Then
+                '  EDITROW()
             End If
         Catch ex As Exception
-            Throw ex
+            If ErrHandle(ex.Message.GetHashCode) = False Then Throw ex
         End Try
     End Sub
 
@@ -3773,15 +3776,18 @@ LINE2:
 
     Private Sub GRIDPASS_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GRIDPASS.KeyDown
         Try
-            If e.KeyCode = Keys.Delete And GRIDBOOKINGS.RowCount > 0 Then
+            If e.KeyCode = Keys.Delete And GRIDPASS.RowCount > 0 Then
 
-                'dont allow user TO DFELETE IN GRIDPUR
-                MessageBox.Show("You Cannot Delete This Row, Delete from Booking Tab")
-                Exit Sub
+                GRIDPASS.Rows.RemoveAt(GRIDPASS.CurrentRow.Index)
 
+                total()
+                getsrno(GRIDPASS)
+
+            ElseIf e.KeyCode = Keys.F5 Then
+                '  EDITROW()
             End If
         Catch ex As Exception
-            Throw ex
+            If ErrHandle(ex.Message.GetHashCode) = False Then Throw ex
         End Try
     End Sub
 

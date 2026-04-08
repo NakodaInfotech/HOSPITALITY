@@ -280,6 +280,8 @@ Partial Class AirlineBookings
         Me.GFLTARR = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GCLASS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BlendPanel1 = New VbPowerPack.BlendPanel()
+        Me.RETURNDATE = New System.Windows.Forms.DateTimePicker()
+        Me.Label59 = New System.Windows.Forms.Label()
         Me.LBLEINVGENERATED = New System.Windows.Forms.Label()
         Me.TXTCESSAMT = New System.Windows.Forms.TextBox()
         Me.Label50 = New System.Windows.Forms.Label()
@@ -430,8 +432,6 @@ Partial Class AirlineBookings
         Me.CMBPRINT = New System.Windows.Forms.ComboBox()
         Me.Label49 = New System.Windows.Forms.Label()
         Me.TXTSEARCHTCKETNO = New System.Windows.Forms.TextBox()
-        Me.RETURNDATE = New System.Windows.Forms.DateTimePicker()
-        Me.Label59 = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.TBDETAILS.SuspendLayout()
         Me.TBBOOKINGS.SuspendLayout()
@@ -1270,9 +1270,9 @@ Partial Class AirlineBookings
         '
         Me.TBPASSDTLS.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TBPASSDTLS.Controls.Add(Me.GRIDPASS)
-        Me.TBPASSDTLS.Location = New System.Drawing.Point(4, 22)
+        Me.TBPASSDTLS.Location = New System.Drawing.Point(4, 23)
         Me.TBPASSDTLS.Name = "TBPASSDTLS"
-        Me.TBPASSDTLS.Size = New System.Drawing.Size(1121, 187)
+        Me.TBPASSDTLS.Size = New System.Drawing.Size(1121, 186)
         Me.TBPASSDTLS.TabIndex = 5
         Me.TBPASSDTLS.Text = "Passenger Details"
         Me.TBPASSDTLS.UseVisualStyleBackColor = True
@@ -1322,7 +1322,7 @@ Partial Class AirlineBookings
         Me.GRIDPASS.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.GRIDPASS.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.GRIDPASS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.GRIDPASS.Size = New System.Drawing.Size(1121, 187)
+        Me.GRIDPASS.Size = New System.Drawing.Size(1121, 186)
         Me.GRIDPASS.TabIndex = 24
         Me.GRIDPASS.TabStop = False
         '
@@ -1469,10 +1469,10 @@ Partial Class AirlineBookings
         Me.TBPURCHASE.Controls.Add(Me.PBPURTDSDEL)
         Me.TBPURCHASE.Controls.Add(Me.PBCOMMRECDDEL)
         Me.TBPURCHASE.Controls.Add(Me.PBDICSRECDDEL)
-        Me.TBPURCHASE.Location = New System.Drawing.Point(4, 22)
+        Me.TBPURCHASE.Location = New System.Drawing.Point(4, 23)
         Me.TBPURCHASE.Name = "TBPURCHASE"
         Me.TBPURCHASE.Padding = New System.Windows.Forms.Padding(3)
-        Me.TBPURCHASE.Size = New System.Drawing.Size(1121, 187)
+        Me.TBPURCHASE.Size = New System.Drawing.Size(1121, 186)
         Me.TBPURCHASE.TabIndex = 4
         Me.TBPURCHASE.Text = "Purchase"
         '
@@ -2369,10 +2369,10 @@ Partial Class AirlineBookings
         Me.TBSCANDOCS.Controls.Add(Me.txtuploadsrno)
         Me.TBSCANDOCS.Controls.Add(Me.PBSoftCopy)
         Me.TBSCANDOCS.Controls.Add(Me.cmdupload)
-        Me.TBSCANDOCS.Location = New System.Drawing.Point(4, 22)
+        Me.TBSCANDOCS.Location = New System.Drawing.Point(4, 23)
         Me.TBSCANDOCS.Name = "TBSCANDOCS"
         Me.TBSCANDOCS.Padding = New System.Windows.Forms.Padding(3)
-        Me.TBSCANDOCS.Size = New System.Drawing.Size(1121, 187)
+        Me.TBSCANDOCS.Size = New System.Drawing.Size(1121, 186)
         Me.TBSCANDOCS.TabIndex = 3
         Me.TBSCANDOCS.Text = "Scan Docs"
         '
@@ -2599,10 +2599,10 @@ Partial Class AirlineBookings
         Me.TBADDDETAILS.Controls.Add(Me.CMDUPLOADIRN)
         Me.TBADDDETAILS.Controls.Add(Me.PBQRCODE)
         Me.TBADDDETAILS.Controls.Add(Me.TXTIRNNO)
-        Me.TBADDDETAILS.Location = New System.Drawing.Point(4, 22)
+        Me.TBADDDETAILS.Location = New System.Drawing.Point(4, 23)
         Me.TBADDDETAILS.Name = "TBADDDETAILS"
         Me.TBADDDETAILS.Padding = New System.Windows.Forms.Padding(3)
-        Me.TBADDDETAILS.Size = New System.Drawing.Size(1121, 187)
+        Me.TBADDDETAILS.Size = New System.Drawing.Size(1121, 186)
         Me.TBADDDETAILS.TabIndex = 6
         Me.TBADDDETAILS.Text = "Additional Details"
         '
@@ -3424,6 +3424,27 @@ Partial Class AirlineBookings
         Me.BlendPanel1.Name = "BlendPanel1"
         Me.BlendPanel1.Size = New System.Drawing.Size(1356, 576)
         Me.BlendPanel1.TabIndex = 0
+        '
+        'RETURNDATE
+        '
+        Me.RETURNDATE.CustomFormat = "dd/MM/yyyy"
+        Me.RETURNDATE.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RETURNDATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.RETURNDATE.Location = New System.Drawing.Point(586, 32)
+        Me.RETURNDATE.Name = "RETURNDATE"
+        Me.RETURNDATE.Size = New System.Drawing.Size(78, 22)
+        Me.RETURNDATE.TabIndex = 954
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.BackColor = System.Drawing.Color.Transparent
+        Me.Label59.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.Location = New System.Drawing.Point(508, 36)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(72, 14)
+        Me.Label59.TabIndex = 955
+        Me.Label59.Text = "Return Date"
         '
         'LBLEINVGENERATED
         '
@@ -5197,27 +5218,6 @@ Partial Class AirlineBookings
         Me.TXTSEARCHTCKETNO.TabIndex = 829
         Me.TXTSEARCHTCKETNO.TabStop = False
         Me.TXTSEARCHTCKETNO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'RETURNDATE
-        '
-        Me.RETURNDATE.CustomFormat = "dd/MM/yyyy"
-        Me.RETURNDATE.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RETURNDATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.RETURNDATE.Location = New System.Drawing.Point(586, 32)
-        Me.RETURNDATE.Name = "RETURNDATE"
-        Me.RETURNDATE.Size = New System.Drawing.Size(78, 22)
-        Me.RETURNDATE.TabIndex = 954
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.BackColor = System.Drawing.Color.Transparent
-        Me.Label59.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label59.Location = New System.Drawing.Point(508, 36)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(72, 14)
-        Me.Label59.TabIndex = 955
-        Me.Label59.Text = "Return Date"
         '
         'AirlineBookings
         '
